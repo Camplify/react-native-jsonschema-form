@@ -1,7 +1,7 @@
 {
   "name": "react-native-jsonschema-form",
   "description": "A simple React component capable of building react native layout forms out of a JSON schema.",
-  "main": "index.js",
+  "main": "src/index.js",
   "version": "0.0.8",
   "author": "Roy aizenebrg <davario@gmail.com>",
   "contributors": [
