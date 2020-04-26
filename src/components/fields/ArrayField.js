@@ -320,7 +320,6 @@ class ArrayField extends Component {
   };
 
   render() {
-    console.log('objectobjectobjectobjectobject')
     const {
       schema,
       uiSchema,
