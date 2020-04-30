@@ -3,7 +3,7 @@ import IconButton from "../IconButton";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import includes from "core-js/library/fn/array/includes";
-import {View } from 'react-native'
+import { View } from "react-native";
 
 import UnsupportedField from "./UnsupportedField";
 import {
@@ -21,7 +21,7 @@ import {
 } from "../../utils";
 
 function ArrayFieldTitle({ TitleField, idSchema, title, required }) {
-  console.log('ArrayFieldTitle' ,title )
+  console.log("ArrayFieldTitle", title);
   if (!title) {
     // See #312: Ensure compatibility with old versions of React.
     return <View />;
@@ -60,7 +60,8 @@ function DefaultArrayItem(props) {
             style={{
               display: "flex",
               justifyContent: "space-around",
-            }}>
+            }}
+          >
             {(props.hasMoveUp || props.hasMoveDown) && (
               <IconButton
                 icon="arrow-up"
@@ -117,14 +118,16 @@ function DefaultFixedArrayFieldTemplate(props) {
       {(props.uiSchema["ui:description"] || props.schema.description) && (
         <View
           className="field-description"
-          key={`field-description-${props.idSchema.$id}`}>
+          key={`field-description-${props.idSchema.$id}`}
+        >
           {props.uiSchema["ui:description"] || props.schema.description}
         </View>
       )}
 
       <View
         className="row array-item-list"
-        key={`array-item-list-${props.idSchema.$id}`}>
+        key={`array-item-list-${props.idSchema.$id}`}
+      >
         {props.items && props.items.map(DefaultArrayItem)}
       </View>
 
@@ -141,7 +144,7 @@ function DefaultFixedArrayFieldTemplate(props) {
 
 function DefaultNormalArrayFieldTemplate(props) {
   return (
-    <View >
+    <View>
       <ArrayFieldTitle
         key={`array-field-title-${props.idSchema.$id}`}
         TitleField={props.TitleField}
@@ -163,8 +166,9 @@ function DefaultNormalArrayFieldTemplate(props) {
 
       <View
         className="row array-item-list"
-        key={`array-item-list-${props.idSchema.$id}`}>
-        {props.items && props.items.map(p => DefaultArrayItem(p))}
+        key={`array-item-list-${props.idSchema.$id}`}
+      >
+        {props.items && props.items.map((p) => DefaultArrayItem(p))}
       </View>
 
       {props.canAdd && (
@@ -219,8 +223,10 @@ class ArrayField extends Component {
     return addable;
   }
 
-  onAddClick = event => {
-    event.preventDefault();
+  onAddClick = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
     const { schema, formData, registry = getDefaultRegistry() } = this.props;
     const { definitions } = registry;
     let itemSchema = schema.items;
@@ -233,8 +239,8 @@ class ArrayField extends Component {
     ]);
   };
 
-  onDropIndexClick = index => {
-    return event => {
+  onDropIndexClick = (index) => {
+    return (event) => {
       if (event) {
         event.preventDefault();
       }
@@ -253,12 +259,15 @@ class ArrayField extends Component {
           }
         }
       }
-      onChange(formData.filter((_, i) => i !== index), newErrorSchema);
+      onChange(
+        formData.filter((_, i) => i !== index),
+        newErrorSchema
+      );
     };
   };
 
   onReorderClick = (index, newIndex) => {
-    return event => {
+    return (event) => {
       if (event) {
         event.preventDefault();
         event.target.blur();
@@ -295,7 +304,7 @@ class ArrayField extends Component {
     };
   };
 
-  onChangeForIndex = index => {
+  onChangeForIndex = (index) => {
     return (value, errorSchema) => {
       const { formData, onChange } = this.props;
       const newFormData = formData.map((item, i) => {
@@ -315,7 +324,7 @@ class ArrayField extends Component {
     };
   };
 
-  onSelectChange = value => {
+  onSelectChange = (value) => {
     this.props.onChange(value);
   };
 
@@ -627,7 +636,7 @@ class ArrayField extends Component {
       moveDown: orderable && canMoveDown,
       remove: removable && canRemove,
     };
-    has.toolbar = Object.keys(has).some(key => has[key]);
+    has.toolbar = Object.keys(has).some((key) => has[key]);
 
     return {
       children: (
