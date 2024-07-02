@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-import {
-  View,
-  Button,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ViewPropTypes,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
+import { ViewPropTypes } from "deprecated-react-native-prop-types";
 import { default as DefaultErrorList } from "./ErrorList";
 import {
   getDefaultFormState,
@@ -224,14 +218,8 @@ export default class Form extends Component {
       submitTitle,
     } = this.props;
 
-    const {
-      schema,
-      uiSchema,
-      styleSheet,
-      formData,
-      errorSchema,
-      idSchema,
-    } = this.state;
+    const { schema, uiSchema, styleSheet, formData, errorSchema, idSchema } =
+      this.state;
     const registry = this.getRegistry();
     const _SchemaField = registry.fields.SchemaField;
 

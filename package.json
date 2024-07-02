@@ -16,6 +16,7 @@
   "dependencies": {
     "ajv": "^6.6.2",
     "core-js": "^2.6.11",
+    "deprecated-react-native-prop-types": "^5.0.0",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "prop-types": "^15.6.2",
