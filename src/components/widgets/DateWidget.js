@@ -10,6 +10,8 @@ import {getStyle} from '../../utils'
 
 const today = moment().startOf('day')
 
+const renderWidgetButtonSource = require('../../images/dark.png');
+
 class DateWidget extends React.Component {
   constructor(props) {
     super(props)
@@ -139,7 +141,7 @@ class DateWidget extends React.Component {
         <Text style={[styles.dropText,this.widgetStyle('placeholderdropText')]} >{this.props.schema.placeHolder}</Text>
       }
       <Image
-      source={require('../../images/dark.png')}
+      source={renderWidgetButtonSource}
     />
       </TouchableOpacity>
     )

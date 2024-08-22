@@ -56,10 +56,13 @@ const widgetMap = {
   },
 };
 
+const defaultRegistryFields = require("./components/fields").default;
+const defaultRegistryWidgets = require("./components/widgets").default;
+
 export function getDefaultRegistry() {
   return {
-    fields: require("./components/fields").default,
-    widgets: require("./components/widgets").default,
+    fields: defaultRegistryFields,
+    widgets: defaultRegistryWidgets,
     definitions: {},
     formContext: {},
   };

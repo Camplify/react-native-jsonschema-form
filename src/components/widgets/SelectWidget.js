@@ -6,6 +6,7 @@ import { Text, View, StyleSheet,Image,Platform } from 'react-native'
 import {getStyle} from '../../utils'
 
 const nums = new Set(["number", "integer"]);
+const selectWidgetSource = require('../../images/dark.png');
 
 /**
  * This is a silly limitation in the DOM where option change event values are
@@ -114,7 +115,7 @@ class SelectWidget extends React.Component {
               <Text style={widgetStyle('text')}>{label}</Text>
               : <Text style={widgetStyle('placeHolderText')}>{emptyValue}</Text>}
             <Image
-              source={require('../../images/dark.png')}
+              source={selectWidgetSource}
             />
           </View>
         </RNPickerSelect>
